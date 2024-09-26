@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedra, papel ou tesoura</title>
+    <style>
+        button:hover {
+            background-color: #878787; /* Cor de fundo quando selecionado */
+            color: white;
+        }
+        button {
+            display: inline-flex;
+            margin: 10px;
+            padding: 10px 10px;
+            font-size: 16px;
+            height: 100px;
+            width: 100px;
+        }
+        * {
+            margin: 20px 10px 20px;
+            text-align: center;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Selecione uma opção</h1>
+    <div>
+        <button id="pedra" onclick="pedra()"><img src="pedra.jpg"></button>
+        <button id="papel" onclick="papel()"><img src="papel.jpg"></button>
+        <button id="tesoura" onclick="tesoura()"><img src="tesoura.jpg"></button>
+    </div>
+    <br>
+    <div>
+        <label for="">Venceu</label><label id="venceu">0</label><br>
+        <label for="">Perdeu</label><label id="perdeu">0</label><br>
+        <label for="">Empate</label><label id="empate">0</label>
+    </div>
+
+    <script>
+        var v = 0;
+        var p = 0;
+        var e = 0;
+        var pedra = function() {
+            var escolha = Math.random()*3
+            escolha<1?e++:escolha<2?p++:v++
+            alert("Computador escolheu: " + (escolha<1?"Pedra\nEmpate":escolha<2?"Papel\nPerdeu":"Tesoura\nVenceu"))
+            document.getElementById("venceu").textContent = v;
+            document.getElementById("perdeu").textContent = p;
+            document.getElementById("empate").textContent = e;
+        }
+        var papel = function() {
+            var escolha = Math.random()*3
+            escolha<1?v++:escolha<2?e++:p++
+            alert("Computador escolheu: " + (escolha<1?"Pedra\nVenceu":escolha<2?"Papel\nEmpate":"Tesoura\nJogador perdeu"))
+            document.getElementById("venceu").textContent = v;
+            document.getElementById("perdeu").textContent = p;
+            document.getElementById("empate").textContent = e;
+        }
+        var tesoura = function() {
+            var escolha = Math.random()*3
+            escolha<1?p++:escolha<2?v++:e++
+            alert("Computador escolheu: " + (escolha<1?"Pedra\nPerdeu":escolha<2?"Papel\nVenceu":"Tesoura\nEmpate"))
+            document.getElementById("venceu").textContent = v;
+            document.getElementById("perdeu").textContent = p;
+            document.getElementById("empate").textContent = e;
+        }
+    </script>
+
+</body>
+</html>
