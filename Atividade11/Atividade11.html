@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criando objetos</title>
+</head>
+
+<body>
+    <script>
+        var aluno1 = new Object();
+        aluno1.ra = "00001234";
+        aluno1.nome = "Pedro";
+
+        alert(`ra = ${aluno1.ra} nome = ${aluno1.nome}`);
+
+        var aluno2 = {};
+        aluno2.ra = "1234";
+        aluno2["nome"] = "Leo";
+
+        alert(`ra = ${aluno2.ra} nome = ${aluno2.nome}`);
+
+        var aluno3 = {
+            ra: "1234567",
+            nome: "Matheus"
+        };
+
+        alert(`ra = ${aluno3.ra} nome = ${aluno3.nome}`);
+    </script>
+</body>
+</html>
