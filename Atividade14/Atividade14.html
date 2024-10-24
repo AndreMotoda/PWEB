@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letras</title>
+</head>
+<body>
+    <input type="text" id="texto">
+    <input type="button" value="botão" onclick="caixa()"><br><br>
+    <input type="checkbox" name="caixa" id=""> Maiusculo<br><br>
+    <input type="checkbox" name="caixa" id=""> Minusculo
+
+    <script>
+        /*
+        Criar um Input Text e dois Input RadioButton.
+         1º RadioButton - transforma o conteúdo do Input Text em letras maiúsculas.
+         2º RadioButton - transforma o conteúdo do Input Text em letras minúsculas.
+        Dica: Exemplo UsandoDOM2Nomes.html mostra exemplos de como acessaros valores dos campos.
+        */
+
+        function caixa() {
+            var texto = document.getElementById("texto").value;
+            var textoNovo = "";
+            var box = document.getElementsByName('caixa');
+
+            if(box[0].checked == true){
+                textoNovo = texto.toUpperCase();
+            }
+            else if(box[1].checked == true){
+                textoNovo = texto.toLowerCase();
+            }
+            else{
+                textoNovo = texto;
+            }
+            alert(textoNovo);
+        }
+    </script>
+</body>
+</html>

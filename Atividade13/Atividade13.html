@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janela</title>
+    <style>
+            img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            cursor: pointer;
+            }
+    </style>
+</head>
+<body>
+    <h1 id="status">Janela Fechada</h1>
+    <img id="janela" src="janelafechada.jpg" onmouseout="fecharJanela()" 
+    onmouseover="abrirJanela()" onmouseup="quebrarJanela()">
+
+    <script>
+        /*
+            Encontre na rede 3 figuras: janela aberta, janelafechada e janela quebrada.
+            Criar uma página que no carregamento mostra a janelafechada com um título “Abra a Janela”. 
+            Se mover com o mousesobre a imagem da janela fechada, mostra a janela aberta(abre a janela), 
+            se sair com o mouse da imagem mostra ajanela fechada (fecha a janela). 
+            Se clicar sobre a imagemmostra a imagem da janela quebrada (quebra a janela).
+            Colocar um texto em um H1 informando “Janela aberta”,
+            “Janela Fechada” ou “Janela Quebrada”
+        */
+
+        function fecharJanela(){
+            janela.src="janelafechada.jpg";
+            status.textContent = "Janela Fechada";
+        }
+        function abrirJanela(){
+            janela.src="janelaaberta.jpg";
+            status.textContent = "Janela Aberta";
+        }
+        function quebrarJanela(){
+            janela.src="quebrada.jpg";
+            status.textContent = "Janela Quebrada";
+        }
+
+    </script>
+</body>
+</html>
