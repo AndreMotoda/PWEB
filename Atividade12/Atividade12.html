@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>função</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        1. Utilize uma função construtora para o Retânguloreceber (x,y) 
+        ou seja, base e altura, com um métodopara calcular a área. 
+        Criar um objeto e executar ométodo que calcula a área. 
+        Não precisa utilizar get e set na função construtora.
+        2. Crie uma Classe tipo Conta, com as propriedades nomecorrentista, banco, 
+        numero da conta e saldo. Crie utilizando herança duas novas classes: 
+        Corrente com Saldo Especial e Poupanca com Juros, DataVencimento. 
+        Receber os dados via get e set. Criar umo bjeto de cada uma: Corrente e 
+        Poupanca e mostrar os seus dados.
+        ** Receber dados com prompt ou inputs
+        */
+
+        function Retangulo(base, altura) {
+            this.base = base;
+            this.altura = altura;
+
+            this.calcularArea = function () {
+                return this.base * this.altura;
+            };
+        }
+
+        const retangulo = new Retangulo(5, 10);
+
+        alert("Área do retângulo:" + retangulo.calcularArea());
+
+        class Conta {
+            constructor(nomeCorrentista, banco, numeroConta, saldo) {
+                this.nomeCorrentista = nomeCorrentista;
+                this.banco = banco;
+                this.numeroConta = numeroConta;
+                this.saldo = saldo;
+            }
+            
+            getNomeCorrentista() {
+                return this.nomeCorrentista;
+            }
+
+            setNomeCorrentista(nome) {
+                this.nomeCorrentista = nome;
+            }
+
+            getBanco() {
+                return this.banco;
+            }
+
+            setBanco(banco) {
+                this.banco = banco;
+            }
+
+            getNumeroConta() {
+                return this.numeroConta;
+            }
+
+            setNumeroConta(numero) {
+                this.numeroConta = numero;
+            }
+
+            getSaldo() {
+                return this.saldo;
+            }
+
+            setSaldo(saldo) {
+                this.saldo = saldo;
+            }
+        }
+
+
+        class Corrente extends Conta {
+            constructor(nomeCorrentista, banco, numeroConta, saldo, saldoEspecial) {
+                super(nomeCorrentista, banco, numeroConta, saldo);
+                this.saldoEspecial = saldoEspecial;
+            }
+        }
+
+        class Poupanca extends Conta {
+            constructor(nomeCorrentista, banco, numeroConta, saldo, juros, dataVencimento) {
+                super(nomeCorrentista, banco, numeroConta, saldo);
+                this.juros = juros;
+                this.dataVencimento = dataVencimento;
+            }
+        }
+
+        const nome = prompt("Digite o nome do correntista:");
+        const banco = prompt("Digite o banco:");
+        const numeroConta = prompt("Digite o número da conta:");
+        const saldoCorrente = parseFloat(prompt("Digite o saldo da conta corrente:"));
+        const saldoEspecial = parseFloat(prompt("Digite o saldo especial:"));
+
+        const corrente = new Corrente(nome, banco, numeroConta, saldoCorrente, saldoEspecial);
+
+        const juros = parseFloat(prompt("Digite a taxa de juros da poupança:"));
+        const dataVencimento = prompt("Digite a data de vencimento da poupança (ex: 2023-12-31):");
+        const saldoPoupanca = parseFloat(prompt("Digite o saldo da conta poupança:"));
+
+        const poupanca = new Poupanca(nome, banco, numeroConta, saldoPoupanca, juros, dataVencimento);
+
+        alert(`Dados Conta Corrente: Nome: ${corrente.getNomeCorrentista()}, banco: ${corrente.getBanco()},
+        número: ${corrente.getNumeroConta()}, saldo: ${corrente.getSaldo()}, saldo especial: ${corrente.saldoEspecial}.`);
+        alert(`Dados Conta Poupanca: Nome: ${poupanca.getNomeCorrentista()}, banco: ${poupanca.getBanco()},
+        número: ${poupanca.getNumeroConta()}, saldo: ${poupanca.getSaldo()}, juros: ${poupanca.juros},
+        data vencimento: ${poupanca.dataVencimento}`);
+
+    </script>
+</body>
+
+</html>
